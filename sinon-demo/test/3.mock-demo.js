@@ -5,7 +5,7 @@ describe("mock all", function () {
     it("mock的测试", function () {
         console.log("mock start;")
 
-        var myAPI = {
+        const myAPI = {
             func1: function () {
                 console.info("运行func1");
             },
@@ -14,7 +14,7 @@ describe("mock all", function () {
             },
         };
 
-        var mock = sinon.mock(myAPI);
+        const mock = sinon.mock(myAPI);
 
         // 期待
         // FIXME 这里没有返回2啊
@@ -37,13 +37,13 @@ describe("mock all", function () {
     it("mock的测试2", function () {
         console.log("mock2 start;")
 
-        var myAPI = {
+        const myAPI = {
             func1: function () {
                 console.info("运行func1");
             }
         };
 
-        var mock = sinon.mock(myAPI);
+        const mock = sinon.mock(myAPI);
 
         // 期待
         mock.expects("func1").twice();
