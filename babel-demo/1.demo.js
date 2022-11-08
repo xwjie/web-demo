@@ -10,11 +10,12 @@ const b = 2;
 let ast = parser.parse(jsCode)
 
 // 如果有 import export 关键字，需要使用该参数
-// let ast1 = parser.parse(js_code,{
+// let ast = parser.parse(jsCode,{
 //     sourceType:"module",
 // })
 
 console.log(JSON.stringify(ast, null, 2));
+console.log();
 
 let code = generator(ast).code
 console.log(code);
@@ -28,3 +29,4 @@ let code1 = generator(ast, {
 
 console.log(code1);
 console.log();
+
