@@ -1,6 +1,15 @@
+1.demo.js 和 2.toes5.js 可以单独运行
+
+# 命令行运行
+
+先安装 `npm install --save-dev babel-cli`
+然后 `npx babel test.js`
+
 # 文档
 
 [手把手带你走进Babel的编译世界 - 掘金](https://juejin.cn/post/7078482623387402271)
+
+[Babel原理浅析(二)： 手写一个极简插件 - David's Blog](https://luoluoqinghuan.cn/2021/04/09/howTransformBabelAst/)
 
 # 工具
 
