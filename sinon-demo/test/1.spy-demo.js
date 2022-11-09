@@ -28,13 +28,16 @@ describe("spy all", function () {
 
         let spy = sinon.spy(obj, "func");
 
-        // 同一个
-        assert(spy === obj.func)
+        try { // 同一个
+            assert(spy === obj.func)
 
-        obj.func(3);
+            obj.func(3);
 
-        assert(obj.func.calledOnce);
-        assert.equal(obj.func.getCall(0).args[0], 3);
+            assert(obj.func.calledOnce);
+            assert.equal(obj.func.getCall(0).args[0], 3);
+        } finally {
+            spy.restore();
+        }
     });
 
     describe('经典应用场景：callback', function () {

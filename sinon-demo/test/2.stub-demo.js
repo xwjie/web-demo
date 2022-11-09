@@ -8,12 +8,17 @@ describe("stub all", function () {
                 console.info(1);
             },
         };
-        sinon.stub(obj, "func").returns(22);
 
-        const result = obj.func(3);
+        let stub = sinon.stub(obj, "func").returns(22);
 
-        assert(obj.func.calledOnce);
-        assert.equal(obj.func.getCall(0).args[0], 3);
-        assert.equal(result, 22);
+        try {
+            const result = obj.func(3);
+
+            assert(stub.calledOnce);
+            assert.equal(stub.getCall(0).args[0], 3);
+            assert.equal(result, 22);
+        } finally {
+            stub.restore();
+        }
     });
 });

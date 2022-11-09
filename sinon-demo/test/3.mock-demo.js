@@ -16,22 +16,25 @@ describe("mock all", function () {
 
         const mock = sinon.mock(myAPI);
 
-        // 期待
-        // FIXME 这里没有返回2啊
-        mock.expects("func1").once().returns(2);
-        mock.expects("func2").twice();
+        try { // 期待
+            // FIXME 这里没有返回2啊
+            mock.expects("func1").once().returns(2);
+            mock.expects("func2").twice();
 
-        myAPI.func1();
-        myAPI.func2();
-        myAPI.func2();
+            myAPI.func1();
+            myAPI.func2();
+            myAPI.func2();
 
-        // 检验
-        console.log("verify begin;")
-        mock.verify();
-        console.log("verify done;")
+            // 检验
+            console.log("verify begin;")
+            mock.verify();
+            console.log("verify done;")
 
-        // 检验之后不管了。
-        myAPI.func2();
+            // 检验之后不管了。
+            myAPI.func2();
+        } finally {
+            mock.restore();
+        }
     });
 
     it("mock的测试2", function () {
@@ -45,23 +48,26 @@ describe("mock all", function () {
 
         const mock = sinon.mock(myAPI);
 
-        // 期待
-        mock.expects("func1").twice();
+        try { // 期待
+            mock.expects("func1").twice();
 
-        myAPI.func1();
-        console.log("mock2 func1 1 end")
+            myAPI.func1();
+            console.log("mock2 func1 1 end")
 
-        myAPI.func1();
-        console.log("mock2 func1 2 end")
+            myAPI.func1();
+            console.log("mock2 func1 2 end")
 
-        // 执行到这里就会抛异常
-        myAPI.func1();
-        console.log("mock2 func1 3 end")
+            // 执行到这里就会抛异常
+            myAPI.func1();
+            console.log("mock2 func1 3 end")
 
-        // 检验
-        console.log("verify2 begin;")
-        mock.verify();
-        console.log("verify2 done;")
+            // 检验
+            console.log("verify2 begin;")
+            mock.verify();
+            console.log("verify2 done;")
+        } finally {
+            mock.restore();
+        }
     });
 
 });
