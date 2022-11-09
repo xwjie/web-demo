@@ -1,4 +1,6 @@
 
+[Sinon.JS - Standalone test fakes, spies, stubs and mocks for JavaScript. Works with any unit testing framework.](https://sinonjs.org/)
+
 # spy
 
 spy 生成一个间谍函数，它会记录下函数调用的参数，返回值，this 的值，以及抛出的异常。

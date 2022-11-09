@@ -2,7 +2,7 @@ const {assert} = require("chai")
 const sinon = require("sinon");
 
 describe("spy all", function () {
-    it("传入Once的函数会被调用", function () {
+    it("基础应用，创建空函数", function () {
         let spy = sinon.spy();
 
         spy();
@@ -35,5 +35,37 @@ describe("spy all", function () {
 
         assert(obj.func.calledOnce);
         assert.equal(obj.func.getCall(0).args[0], 3);
+    });
+
+    describe('经典应用场景：callback', function () {
+        it('call被调用，参数校验 ', function () {
+            // 模拟一个post方法
+            const post = (params, callback) =>{
+                console.log('call post method', params);
+                callback({
+                    code: 0,
+                    data: '返回的数据'
+                })
+            }
+
+            let callback = sinon.spy();
+
+            // 执行函数，测试回调调用情况
+            post('a=1', callback);
+
+            // 是否被调用了
+            assert(callback.called);
+
+            // 检查调用的参数
+            console.log(callback.args[0])
+            let arg = callback.getCall(0).firstArg;
+            console.log(arg)
+
+            // 回调的返回码为0
+            assert.equal(arg.code , 0);
+
+            // 有data字段不为false
+            assert(arg.data);
+        });
     });
 });
