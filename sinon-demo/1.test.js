@@ -1,4 +1,4 @@
-const sinon = require('sinon');
+import sinon from "sinon";
 
 let spy = sinon.spy();
 

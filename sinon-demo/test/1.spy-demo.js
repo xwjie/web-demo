@@ -1,5 +1,5 @@
-const {assert} = require("chai")
-const sinon = require("sinon");
+import sinon from "sinon";
+import {assert} from "chai";
 
 describe("spy all", function () {
     it("基础应用，创建空函数", function () {

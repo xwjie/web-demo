@@ -1,5 +1,5 @@
-const {assert} = require("chai")
-const sinon = require("sinon");
+import sinon from "sinon";
+import {assert} from "chai";
 
 describe("stub all", function () {
     it("对原有函数的stub封装，可以监听原有函数的调用情况,以及模拟返回", function () {

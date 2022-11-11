@@ -1,5 +1,5 @@
-const {assert} = require("chai")
-const sinon = require("sinon");
+import {assert} from "chai";
+import sinon from "sinon";
 
 describe("mock all", function () {
     it("mock的测试", function () {
@@ -28,7 +28,7 @@ describe("mock all", function () {
             // 检验
             console.log("verify begin;")
             mock.verify();
-            console.log("verify done;")
+            console.log("verify done;");
 
             // 检验之后不管了。
             myAPI.func2();
@@ -38,7 +38,7 @@ describe("mock all", function () {
     });
 
     it("mock的测试2", function () {
-        console.log("mock2 start;")
+        console.log("mock2 start;");
 
         const myAPI = {
             func1: function () {
@@ -52,10 +52,10 @@ describe("mock all", function () {
             mock.expects("func1").twice();
 
             myAPI.func1();
-            console.log("mock2 func1 1 end")
+            console.log("mock2 func1 1 end");
 
             myAPI.func1();
-            console.log("mock2 func1 2 end")
+            console.log("mock2 func1 2 end");
 
             // 执行到这里就会抛异常
             myAPI.func1();

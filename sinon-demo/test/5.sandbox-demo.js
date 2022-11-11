@@ -1,4 +1,6 @@
-var sandbox = require("sinon").createSandbox();
+import {createSandbox} from "sinon";
+
+var sandbox = createSandbox();
 var myAPI = { hello: function () {} };
 
 describe("myAPI.hello method", function () {
