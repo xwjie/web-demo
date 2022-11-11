@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     executablePath: 'C:\\Users\\Administrator\\AppData\\Local\\MyChrome\\Chrome\\Application\\chrone.exe',
     headless: false,
     devtools: true,

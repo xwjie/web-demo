@@ -1,10 +1,9 @@
 /**
  * Created by 晓风轻(xwjie) on 2022/11/5.
  */
-const {sleep} = require("./util");
-
-const puppeteer = require('puppeteer-core');
-const config = require('./config/puppeteer.config')
+import puppeteer from "puppeteer-core";
+import {sleep} from "./util.js";
+import config from './config/puppeteer.config.js';
 
 puppeteer.launch(config).then(async browser => {
     const page = await browser.newPage()

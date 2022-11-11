@@ -1,4 +1,3 @@
-import {assert} from "chai";
 import sinon from "sinon";
 
 describe("spy all", function () {
