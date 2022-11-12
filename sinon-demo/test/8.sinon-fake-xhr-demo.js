@@ -8,7 +8,7 @@ describe('sinon fake xhr', function () {
     var $
     jsdom({
         // 没有起这个服务也没有关系
-        url: 'http://localhost'
+        url: 'http://localhost:8080'
     })
 
     const  myLib ={
@@ -21,9 +21,7 @@ describe('sinon fake xhr', function () {
     before(function () {
         jquery(window);
         $ = window.$;
-    })
 
-    before(function () {
         this.xhr = sinon.useFakeXMLHttpRequest();
         var requests = this.requests = [];
 
@@ -40,7 +38,7 @@ describe('sinon fake xhr', function () {
         console.log($.get)
         var callback = sinon.spy();
 
-        myLib.getCommentsFor("http://localhost:8080", callback);
+        myLib.getCommentsFor("http://localhost:8080/1.json", callback);
         assert.equal(1, this.requests.length);
 
         this.requests[0].respond(200, { "Content-Type": "application/json" },
