@@ -1,6 +1,7 @@
 import jsdom from "jsdom"; // 这里不能用mocha-jsdom，只能用jsdom
 import jquery from 'jquery';
 
+// 可为空
 let html = `<html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -14,19 +15,22 @@ let html = `<html lang="en">
 </html>`;
 
 const dom = new jsdom.JSDOM(html, {
-    // 需要和接口一致
+    // 需要和接口一致，否则可能报错
     // Error: Cross origin http://localhost:8081 forbidden
     url: 'http://localhost:8080'
 })
 
-jquery(dom.window);
-const $ = dom.window.$;
+const window = dom.window;
+const document = window.document;
 
-const document = dom.window.document;
+jquery(window);
+const $ = window.$;
 
-document.body.innerHTML = '<div>xwjie</div>'
-console.log($("div").html())
+// dom操作
+document.body.innerHTML = '<div id="test">xwjie</div>'
+console.log($("#test").html())
 
+// ajax
 let url = "http://localhost:8080/1.json";
 console.log('get:', url);
 
