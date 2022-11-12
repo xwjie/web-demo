@@ -8,4 +8,7 @@
 ```js
 // 要带js后缀
 import {sleep} from "./util.js"; 
+
+// require不需要后缀
+require('./util')
 ```
