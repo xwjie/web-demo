@@ -19,7 +19,10 @@ stub 是带有预编程行为的函数。
 stub替换字段的时候，如果不指定value，默认本来的值。
 
 ```js
- sinon.stub(myObject, "hello").value("Sinon")
+const myObject = {
+    hello: "world"
+};
+ sinon.stub(myObject, "hello").value("Sinon");
 ```
 
 # mock
