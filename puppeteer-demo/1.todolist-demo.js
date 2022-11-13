@@ -11,12 +11,13 @@ puppeteer.launch(config).then(async browser => {
     await input.type('每天提交一次代码');
 
     // 回车
-    await page.keyboard.press('Enter');
+    // await page.keyboard.press('Enter');
+    await input.press('Enter');
 
     // 检查数据
     // await , innerText是属性，不是方法。
     let countStr =await page.$eval('.todo-count>strong', ele => ele.innerText);
-    console.assert(countStr === '1', '有一条数据');
+    console.assert(countStr === '1', '有1条数据，实际上：' + countStr);
 
     await sleep(3000)
     await browser.close();
