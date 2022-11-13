@@ -1,8 +1,7 @@
 # todo
 
-- useFakeXMLHttpRequest使用还没有测试通过。
-
 ```js
+    // 顶层对象在浏览器环境指的是window，在Node中指的是global对象。
     // nodejs里面的global对象
     global.window = {
          localStorage: {},
