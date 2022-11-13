@@ -1,5 +1,6 @@
 /**
- * Created by 晓风轻(xwjie) on 2022/11/5.
+ *
+ *  Created by 晓风轻(xwjie) on 2022/11/13
  */
 import puppeteer from "puppeteer-core";
 import {sleep} from "./util.js";
