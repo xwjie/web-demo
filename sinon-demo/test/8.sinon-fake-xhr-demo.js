@@ -1,7 +1,8 @@
 import sinon from 'sinon'
 import jsdom from "mocha-jsdom";
 import {assert} from 'chai'
-import  jquery from 'jquery';
+import jquery from 'jquery';
+import myLib from "./my-lib.js";
 
 describe('sinon fake xhr', function () {
 
@@ -11,23 +12,24 @@ describe('sinon fake xhr', function () {
         url: 'http://localhost:8080'
     })
 
-    const  myLib ={
-        getCommentsFor (url, callback) {
-            console.log('get', url)
-            $.get(url, callback);
-        }
-    }
 
     before(function () {
         jquery(window);
         $ = window.$;
 
-        this.xhr = sinon.useFakeXMLHttpRequest();
+        const xhr = sinon.useFakeXMLHttpRequest();
         var requests = this.requests = [];
-
-        this.xhr.onCreate = function (xhr) {
+        xhr.onCreate = function (xhr) {
             requests.push(xhr);
         };
+
+        global.XMLHttpRequest = this.xhr = xhr
+        // global.window = {
+        //     localStorage: {},
+        //     console: console
+        // };
+        // this.xhr = sinon.useFakeXMLHttpRequest();
+
     });
 
     after(function () {

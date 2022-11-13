@@ -1,3 +1,8 @@
+# todo
+
+- useFakeXMLHttpRequest使用还没有测试通过。
+
+# doc
 
 [Sinon.JS - Standalone test fakes, spies, stubs and mocks for JavaScript. Works with any unit testing framework.](https://sinonjs.org/)
 

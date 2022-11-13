@@ -3,7 +3,7 @@ import sinon from 'sinon'
 import {assert} from 'chai'
 import jquery from 'jquery';
 
-describe('mocha tests', function () {
+describe('mocha-jsdom and jquery tests', function () {
 
     var $
     jsdom({
@@ -28,6 +28,7 @@ describe('mocha tests', function () {
         $.get(url, (data) => {
             console.log('result:', data);
         });
+
         $.ajax({
             url,
             success: function (data) {
@@ -40,7 +41,6 @@ describe('mocha tests', function () {
         // sinon.assert.called(callback);
         //
         // assert(callback.calledWith([{ id: 12, comment: "Hey there" }]));
-
-    });
+    }).timeout(3000);
 
 })
