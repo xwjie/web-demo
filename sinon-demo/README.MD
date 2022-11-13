@@ -2,6 +2,14 @@
 
 - useFakeXMLHttpRequest使用还没有测试通过。
 
+```js
+    // nodejs里面的global对象
+    global.window = {
+         localStorage: {},
+         console: console
+    };
+```
+
 # doc
 
 [Sinon.JS - Standalone test fakes, spies, stubs and mocks for JavaScript. Works with any unit testing framework.](https://sinonjs.org/)

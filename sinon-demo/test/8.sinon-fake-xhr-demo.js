@@ -18,18 +18,18 @@ describe('sinon fake xhr', function () {
         $ = window.$;
 
         const xhr = sinon.useFakeXMLHttpRequest();
-        var requests = this.requests = [];
+        const requests = this.requests = [];
         xhr.onCreate = function (xhr) {
             requests.push(xhr);
         };
 
-        global.XMLHttpRequest = this.xhr = xhr
+        // 这句话是关键
+        window.XMLHttpRequest = this.xhr = xhr
         // global.window = {
         //     localStorage: {},
         //     console: console
         // };
         // this.xhr = sinon.useFakeXMLHttpRequest();
-
     });
 
     after(function () {
@@ -37,7 +37,6 @@ describe('sinon fake xhr', function () {
     });
 
     it('test should fetch comments from server ', function () {
-        console.log($.get)
         var callback = sinon.spy();
 
         myLib.getCommentsFor("http://localhost:8080/1.json", callback);
