@@ -17,6 +17,9 @@ describe('sinon fake xhr', function () {
         jquery(window);
         $ = window.$;
 
+        // not use in this demo
+        // sinon.xhr.supportsCORS = true
+
         const xhr = sinon.useFakeXMLHttpRequest();
         const requests = this.requests = [];
         xhr.onCreate = function (xhr) {
