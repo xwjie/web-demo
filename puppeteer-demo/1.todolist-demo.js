@@ -16,7 +16,7 @@ puppeteer.launch(config).then(async browser => {
 
     // 检查数据
     // await , innerText是属性，不是方法。
-    let countStr =await page.$eval('.todo-count>strong', ele => ele.innerText);
+    let countStr = await page.$eval('.todo-count>strong', ele => ele.innerText);
     console.assert(countStr === '1', '有1条数据，实际上：' + countStr);
 
     await sleep(3000)

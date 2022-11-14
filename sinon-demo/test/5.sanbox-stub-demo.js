@@ -12,7 +12,7 @@ const myObject = {
 
 try {
     // 字符串
-    let fieldStub = sinon.stub(myObject, "hello").value("Sinon");
+    let fieldStub = sinon.stub(myObject, "hello").value("Sinon")
 
     console.log('typeof fieldStub', typeof fieldStub); //
 
