@@ -1,7 +1,7 @@
 export default {
     executablePath: 'C:\\Users\\Administrator\\AppData\\Local\\MyChrome\\Chrome\\Application\\chrone.exe',
     headless: false,
-    devtools: true,
+    devtools: false,
     slowMo: 250,
     defaultViewport: {
         width: 1200,
