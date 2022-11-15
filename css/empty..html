@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            height: 200px;
+            width: 300px;
+            background-color: antiquewhite;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .container:empty::after {
+            content: "暂无数据";
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>有数据</div>
+</div>
+
+<div class="container">
+
+</div>
+</body>
+</html>

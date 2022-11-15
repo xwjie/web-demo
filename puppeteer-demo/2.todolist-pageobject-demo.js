@@ -15,6 +15,6 @@ puppeteer.launch(config).then(async browser => {
     let count = await resultPo.getTodoCount();
     console.assert(count === 1, '有1条数据，实际上：' + count);
 
-    await sleep(3000)
+    await sleep(3000);
     await browser.close();
 });
