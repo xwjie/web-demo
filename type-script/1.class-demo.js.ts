@@ -6,6 +6,10 @@ class Student {
                 public lastName: string) {
         this.fullName = firstName + " " + middleInitial + " " + lastName;
     }
+
+    hello() {
+        console.log('hello ' + this.fullName);
+    }
 }
 
 interface Person {
@@ -19,6 +23,8 @@ function greeter(person: Person) {
 
 let user = new Student("Jane", "M.", "User");
 
+user.hello();
+
 console.log(greeter(user));
 console.log(user.fullName);
-console.log(user.firstName, user.lastName, user.fullName, user.middleInitial);
+console.log(user.firstName, user.middleInitial, user.lastName);
