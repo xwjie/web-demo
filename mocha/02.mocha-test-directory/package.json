@@ -1,0 +1,13 @@
+{
+  "name": "02.mocha-test-directory",
+  "private": true,
+  "scripts": {
+    "test": "mocha --recursive",
+    "test-other-folder": "mocha test-other-folder --recursive",
+    "test-all": "npm run test && npm run test-other-folder"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}

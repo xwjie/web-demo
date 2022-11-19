@@ -1,0 +1,13 @@
+{
+  "name": "04.configuring-jest",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "jest-html-reporters": "^2.0.4"
+  }
+}

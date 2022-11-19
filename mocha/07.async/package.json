@@ -1,0 +1,13 @@
+{
+  "name": "07.async",
+  "private": true,
+  "scripts": {
+    "test": "mocha",
+    "test-custom-timeout": "mocha --timeout=4000"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}
