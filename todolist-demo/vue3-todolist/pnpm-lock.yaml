@@ -12,11 +12,13 @@ specifiers:
   jsdom: ^20.0.0
   prettier: ^2.7.1
   start-server-and-test: ^1.14.0
+  todomvc-app-css: ^2.4.2
   vite: ^3.0.9
   vitest: ^0.23.0
   vue: ^3.2.38
 
 dependencies:
+  todomvc-app-css: registry.npmmirror.com/todomvc-app-css/2.4.2
   vue: registry.npmmirror.com/vue/3.2.45
 
 devDependencies:
@@ -3191,6 +3193,12 @@ packages:
     name: to-fast-properties
     version: 2.0.0
     engines: {node: '>=4'}
+
+  registry.npmmirror.com/todomvc-app-css/2.4.2:
+    resolution: {integrity: sha512-ViAkQ7ed89rmhFIGRsT36njN+97z8+s3XsJnB8E2IKOq+/SLD/6PtSvmTtiwUcVk39qPcjAc/OyeDys4LoJUVg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/todomvc-app-css/-/todomvc-app-css-2.4.2.tgz}
+    name: todomvc-app-css
+    version: 2.4.2
+    dev: false
 
   registry.npmmirror.com/tough-cookie/2.5.0:
     resolution: {integrity: sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tough-cookie/-/tough-cookie-2.5.0.tgz}
