@@ -1,10 +1,10 @@
 interface TreeNode {
-    left?: TreeNode;
-    right?: TreeNode;
-    val: number;
+    left? : TreeNode;
+    right? : TreeNode;
+    val : number;
 }
 
-const root: TreeNode = {
+const root : TreeNode = {
     val : 1 ,
     left : {
         val : 2 ,
@@ -20,11 +20,11 @@ const root: TreeNode = {
     }
 };
 
-const treeWalker: (root: TreeNode) => number[] = (root: TreeNode) => {
-    let result: number[] = [];
+const treeWalker : (root : TreeNode) => number[] = (root : TreeNode) => {
+    let result : number[] = [];
 
     // 可选参数必修放前面
-    function _treeWalk(result: number[] , node?: TreeNode) {
+    function _treeWalk(result : number[] , node? : TreeNode) {
         if (!node) {
             return
         }
