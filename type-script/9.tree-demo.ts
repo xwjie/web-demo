@@ -4,6 +4,12 @@ interface TreeNode {
     val : number;
 }
 
+// type TreeNode ={
+//     left? : TreeNode;
+//     right? : TreeNode;
+//     val : number;
+// }
+
 const root : TreeNode = {
     val : 1 ,
     left : {
