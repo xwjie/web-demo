@@ -3,7 +3,7 @@ import { firefox } from "@playwright/test";
 (async () => {
     let browser = await firefox.launch({
         headless: false,
-        slowMo: 300
+        slowMo: 100
     });
 
     let page = await browser.newPage();

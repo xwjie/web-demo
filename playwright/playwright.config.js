@@ -43,6 +43,9 @@ const config = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    headless: false,
+    viewport: { width: 800, height: 720 },
+    ignoreHTTPSErrors: true,
   },
 
   /* Configure projects for major browsers */

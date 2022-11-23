@@ -27,3 +27,8 @@ And check out the following files:
 Visit https://playwright.dev/docs/intro for more information. ✨
 
 Happy hacking! 🎭
+
+# doc
+
+[ElementHandle vs. Locator in Playwright - Testautomatisierung.org](https://www.testautomatisierung.org/elementhandle-vs-locator-in-playwright/)
+
