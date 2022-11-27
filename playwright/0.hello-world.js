@@ -1,12 +1,8 @@
-import { firefox } from "@playwright/test";
+import {chromium} from "@playwright/test";
+import {config} from "./config.js";
 
 (async () => {
-    let browser = await firefox.launch({
-        headless: false,
-        // executablePath: `C:\\Users\\Administrator\\AppData\\Local\\ms-playwright\\chromium-1033\\chrome-win\\chrome.exe`,
-        // executablePath: 'C:\\Users\\Administrator\\AppData\\Local\\MyChrome\\Chrome\\Application\\chrone.exe',
-        slowMo: 100
-    });
+    let browser = await chromium.launch(config);
 
     let page = await browser.newPage();
     await page.goto("https://github.com/xwjie");

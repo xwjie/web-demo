@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>getByRole</h1>
+<div  role="button">里面有一个“role="button"”的属性</div>
+<div  role="button2">里面有一个“role="button2"”的属性，实际上是不行的，role的值也是有专门规定的</div>
+
+<h1>getByTestId</h1>
+<div  data-testid="id1">里面有一个“data-testid="id1"”的属性</div>
+
+<h1>getByAltText</h1>
+<img alt='img1' src="https://avatars.githubusercontent.com/u/8862327?s=40&v=4">
+<div alt="div2">div里面有一个“alt="div2"”的属性</div>
+<h3>下面这个是一个input标签。</h3>
+<input type="image" alt="btn1" src="https://avatars.githubusercontent.com/u/8862327?s=40&v=4"/>
+
+<h1>getByTitle</h1>
+<div title="div3">div里面有一个“title="div3"”的属性</div>
+
+
+</body>
+</html>
