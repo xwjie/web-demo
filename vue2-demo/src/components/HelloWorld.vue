@@ -10,17 +10,21 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      name: 'Welcome to Your Vue.js App'
+      name: '11'
     }
   },
   methods: {
     modify () {
       this.name = '22'// 关键的赋值语句，如果注释掉，结果就大不一样了
+      const text = document.querySelector('.name').innerText
+      // 11
+      console.log(1, text)
       this.$nextTick(() => {
         const text = document.querySelector('.name').innerText
-        console.log(text)
+        // 还是33啊
+        console.log(2, text)
       })
-      this.name = '333'
+      this.name = '33'
     }
   }
 }
