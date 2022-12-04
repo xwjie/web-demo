@@ -1,5 +1,5 @@
 <script setup>
-    import {reactive, computed} from 'vue'
+    import {computed, reactive} from 'vue'
 
     const state = reactive({
         newTodo: '',
@@ -7,13 +7,13 @@
             {id: '1', title: '吃饭', completed: true},
             {id: '2', title: '睡觉', completed: false}
         ]
-    })
+    });
 
     const addTodo = () => {
         console.log(state.newTodo);
 
         //去空格
-        let value = state.newTodo && state.newTodo.trim()
+        let value = state.newTodo && state.newTodo.trim();
 
         if (!value) return;
 
@@ -21,7 +21,7 @@
             id: state.todos.length + 1,
             title: value,
             completed: false
-        })
+        });
 
         //清空
         state.newTodo = ''
@@ -43,19 +43,19 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
-            <input class="new-todo" placeholder="What needs to be done?" autofocus="" @keyup.enter="addTodo"
+            <input @keyup.enter="addTodo" autofocus="" class="new-todo" placeholder="What needs to be done?"
                    v-model="state.newTodo">
         </header>
         <section class="main" style="display: block;">
-            <input id="toggle-all" class="toggle-all" type="checkbox" v-model="allCompleted">
+            <input class="toggle-all" id="toggle-all" type="checkbox" v-model="allCompleted">
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
-                <li v-for="(item,index) in state.todos" :id="item.id"
-                    :class="{completed: item.completed, editing:item.completed }">
+                <li :class="{completed: item.completed, editing:item.completed }" :id="item.id"
+                    v-for="(item,index) in state.todos">
                     <div class="view">
                         <input class="toggle" type="checkbox" v-model="item.completed">
                         <label>{{item.title}}</label>
-                        <button class="destroy" @click="removeTodo(index)"></button>
+                        <button @click="removeTodo(index)" class="destroy"></button>
                     </div>
                     <input class="edit" v-model="item.title">
                 </li>
