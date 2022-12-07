@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>Title</title>
+    <style>
+        input:read-only {
+            background-color: yellow;
+        }
+
+        input:in-range {
+            border: 2px solid yellow;
+        }
+
+        input:valid {
+            background-color: green;
+        }
+
+        input:invalid {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <span>有数据</span>
+</div>
+
+<h2>:empty里面不能有东西，空格都不能有</h2>
+<div class="container"></div>
+
+<div>
+    .container:not
+</div>
+<h3> :read-only 选择器实例演示。</h3>
+<p>普通的input元素:<br><input value="hello"></p>
+<p>只读的input元素:<br><input readonly value="hello"></p>
+<p> :read-write 选择器选取没有设置 "readonly" 属性的元素。</p>
+<p> :readonly 择器选取设置 "readonly" 属性的元素。</p>
+
+<h3>:in-range 选择器实例演示。</h3>
+<input type="number" min="5" max="10" value="7"/>
+<p>在input中输入一个值 (小于 5 或者 大于 10), 查看样式的变化。</p>
+</body>
+</html>
