@@ -1,0 +1,43 @@
+<html>
+<head>
+    <style>
+        .test{
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import {
+            createSignal,
+            onCleanup,
+        } from "https://cdn.skypack.dev/solid-js";
+        import { render } from "https://cdn.skypack.dev/solid-js/web";
+        // 用html加载这个
+        import html from "https://cdn.skypack.dev/solid-js/html";
+        // 用h加载这个
+        import h from "https://cdn.skypack.dev/solid-js/h";
+
+        console.log(html);
+        console.log(h);
+
+        const App = () => {
+            const [count, setCount] = createSignal(0);
+            const timer = setInterval(() => setCount(count() + 1), 1000);
+            onCleanup(() => clearInterval(timer));
+            
+            console.log(count);
+            console.log(setCount);
+
+            // return html`<div>${count}</div>`;
+            // or
+            return h("div", {class:"test"}, count);
+        };
+
+        render(App, document.getElementById("app"));
+        // render(App, document.body);
+    </script>
+</body>
+
+</html>

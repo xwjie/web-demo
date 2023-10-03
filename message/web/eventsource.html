@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>日期</title>
+</head>
+
+<body>
+    <pre>
+        但前台下断点暂停时候，消息会累积。链接不会断开（最起码短期时间不会）。继续后会把积压的消息消费。
+        JSON.stringfy(event)， 里面的data等很多字段都不会序列化出来。
+
+        event.hasOwnerProterty("data") = false.  
+        event.propertyIsEnumerable("isTrusted")；
+
+        JSON.stringfy：其他类型的对象，包括 Map/Set/WeakMap/WeakSet，仅会序列化可枚举的属性。
+
+        后台断开会有error出现，会自动重连。
+    </pre>
+    <h3 id='date'>
+    </h3>
+    <ul>
+    </ul>
+    <script>
+        let seq = 1;
+        let seqDate = 1;
+        let url = "http://localhost:8080/event-source/getDate";
+
+        const logList = document.querySelector('ul');
+
+        function log(str) {
+            var newElement = document.createElement("li");
+            newElement.textContent = `${seq++}:${str}`;
+            logList.appendChild(newElement);
+        }
+
+        if (typeof (EventSource) !== "undefined") {
+            var eventSource = new EventSource(url);
+
+            eventSource.onmessage = function (event) {
+                document.getElementById("date").innerHTML = seqDate++ + ":" + event.data;
+            }
+
+            eventSource.addEventListener('error', function (event) {
+                console.log("error:" + JSON.stringify(event), event)
+                log("错误：" + JSON.stringify(event));
+            });
+
+            eventSource.addEventListener('open', function (event) {
+                console.log("open:" + JSON.stringify(event), event)
+                log("建立连接：" + JSON.stringify(event));
+            });
+
+            /* This will listen only for events
+            * similar to the following:
+            *
+            * event: notice
+            * data: useful data
+            * id: someid
+            *
+            */
+            eventSource.addEventListener("notice", function (e) {
+                console.log("notice:" + JSON.stringify(e), e)
+                log("notice:" + JSON.stringify(e))
+            })
+
+            /* Similarly, this will listen for events
+             * with the field `event: update`
+             */
+            eventSource.addEventListener("update", function (e) {
+                console.log("update:" + JSON.stringify(e), e)
+                log("update:" + JSON.stringify(e))
+            })
+
+            /* The event "message" is a special case, as it
+             * will capture events without an event field
+             * as well as events that have the specific type
+             * `event: message` It will not trigger on any
+             * other event type.
+             */
+            eventSource.addEventListener("message", function (e) {
+                console.log("message:" + JSON.stringify(e), e)
+                log("message:" + JSON.stringify(e))
+            })
+        }
+        else {
+            document.getElementById("date").innerHTML = "抱歉，您的浏览器不支持 server-sent 事件 ...";
+        }
+    </script>
+</body>
+
+</html>

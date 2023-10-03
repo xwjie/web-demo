@@ -23,3 +23,9 @@ require('./util')
 [与社区流行工具对比 | GoGoCode](https://gogocode.io/zh/docs/specification/vs)
 
 [使用 GoGoCode 将 Vue2 项目升级到 Vue3 - 知乎](https://zhuanlan.zhihu.com/p/436490963)
+
+#  message 消息交互
+
+## eventsource
+
+
