@@ -1,0 +1,36 @@
+{
+  "name": "xvite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon  --exec babel-node  src/index.js",
+    "dev2": "babel src/index.js",
+    "dev3": "babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "./babel-plugin-component.js"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "es-module-lexer": "^1.4.1",
+    "koa": "^2.15.0",
+    "magic-string": "^0.30.8",
+    "nodemon": "^3.1.0",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.24.0",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.0"
+  }
+}
