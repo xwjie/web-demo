@@ -42,7 +42,6 @@ nodemon 自動刷新
 
 babel-node 无法使用配置文件，插件不起作用，所以暂时还是安装vue先
 
-
 # compileTemplate
 
 ## transformAssetUrls
@@ -109,14 +108,46 @@ const sfcScriptBlock = compileScript(descriptor, {
     inlineTemplate: true,
     templateOptions: {
         transformAssetUrls: {
+            // 相对路径
             base: filepath.substr(0, filepath.lastIndexOf('/'))
         },
     }
 });
 ```
+
 # Uncaught ReferenceError: process is not defined
 
 在html页面上增加这个变量。
 
+# 热加载（HMR）
 
+vue的代码中增加一下代码，设置id，然后调用一下热加载的方法。
 
+```js
+// 热加载
+code += `\n__script.__hmrId = ${scopedId}`;
+code += `\n__VUE_HMR_RUNTIME__ && __VUE_HMR_RUNTIME__.reload(${scopedId}, __script)`;
+```
+
+修改了vue代码之后，在浏览器控制台里面手工执行重新调用，就可以看到组件级别的热加载刷新。
+
+> import('http://localhost:3000/src/components/HelloWorld.vue?1');
+
+# vite-plugin-inspect
+
+npm i -D vite-plugin-inspect
+
+> http://localhost:5173/__inspect/
+
+- vite.config.js
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Inspect from 'vite-plugin-inspect'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue(), Inspect()],
+})
+```
